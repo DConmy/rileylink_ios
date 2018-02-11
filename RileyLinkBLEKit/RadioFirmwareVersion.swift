@@ -55,6 +55,14 @@ extension RadioFirmwareVersion {
         }
         return true
     }
+    
+    var supportsCustomPreamble: Bool {
+        guard let major = components.first, major >= 2 else {
+            return false
+        }
+        return true
+    }
+
 
     var supports16BitPacketDelay: Bool {
         guard let major = components.first, major >= 2 else {

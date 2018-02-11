@@ -50,7 +50,7 @@ extension PumpMessageSender {
             throw PumpOpsError.deviceError(error)
         }
     }
-
+    
     /// Sends a message to the pump, expecting a specific response body
     ///
     /// - Parameters:
