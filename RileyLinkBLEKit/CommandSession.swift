@@ -55,6 +55,7 @@ public struct CommandSession {
     let manager: PeripheralManager
     let responseType: PeripheralManager.ResponseType
     let firmwareVersion: RadioFirmwareVersion
+    let radioConfigName: String?
 
     /// Invokes a command expecting a response
     ///
@@ -194,5 +195,9 @@ public struct CommandSession {
         guard response.code == .success else {
             throw RileyLinkDeviceError.invalidInput(String(describing: swEncodingType))
         }
+    }
+    
+    public func isRadioConfigured(for name: String) -> Bool {
+        return name == radioConfigName
     }
 }
