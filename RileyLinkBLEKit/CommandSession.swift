@@ -55,6 +55,7 @@ public struct CommandSession {
     let manager: PeripheralManager
     let responseType: PeripheralManager.ResponseType
     let firmwareVersion: RadioFirmwareVersion
+    let radioConfigName: String?
 
     /// Invokes a command expecting a response
     ///
@@ -224,5 +225,8 @@ public struct CommandSession {
         
         _ = try writeCommand(command, timeout: 0)
     }
-
+    
+    public func isRadioConfigured(for name: String) -> Bool {
+        return name == radioConfigName
+    }
 }
